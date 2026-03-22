@@ -10,118 +10,24 @@
       --dark-bg: #0a0e17;
       --card: #111827;
     }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--dark-bg);
-      color: #e5e7eb;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    header {
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #334155;
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      color: var(--cyan-glow);
-      text-shadow: 0 0 10px var(--cyan-glow);
-    }
-    .avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: url('https://i.imgur.com/DDosOk1.png') center/cover no-repeat;
-      border: 3px solid var(--cyan-glow);
-      box-shadow: 0 0 20px rgba(0,240,255,0.6);
-    }
-    .controls {
-      display: flex;
-      gap: 12px;
-    }
-    button {
-      background: #1e293b;
-      color: var(--cyan-glow);
-      border: 1px solid #334155;
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    button:hover {
-      background: #334155;
-      box-shadow: 0 0 15px rgba(0,240,255,0.3);
-    }
-    .main {
-      flex: 1;
-      display: flex;
-      overflow: hidden;
-    }
-    .sidebar {
-      width: 260px;
-      background: #0f172a;
-      border-right: 1px solid #334155;
-      padding: 16px;
-      overflow-y: auto;
-    }
-    .sidebar h3 {
-      color: var(--cyan-glow);
-      margin: 0 0 12px;
-    }
-    .chat-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .messages {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    .message {
-      margin: 12px 0;
-      max-width: 80%;
-      padding: 12px 16px;
-      border-radius: 12px;
-      line-height: 1.5;
-    }
-    .user {
-      background: #2563eb;
-      align-self: flex-end;
-      margin-left: auto;
-    }
-    .bot {
-      background: #1e293b;
-      border: 1px solid #334155;
-    }
-    .input-area {
-      padding: 16px;
-      background: #0f172a;
-      border-top: 1px solid #334155;
-      display: flex;
-      gap: 12px;
-    }
-    #prompt {
-      flex: 1;
-      padding: 12px 16px;
-      border-radius: 8px;
-      border: 1px solid #334155;
-      background: #1e293b;
-      color: white;
-      font-size: 1rem;
-    }
-    #send {
-      background: var(--cyan-glow);
-      color: black;
-      font-weight: bold;
-      border: none;
-    }
+    body { margin:0; font-family:'Segoe UI',sans-serif; background:var(--dark-bg); color:#e5e7eb; height:100vh; display:flex; flex-direction:column; }
+    header { background:linear-gradient(135deg,#0f172a,#1e293b); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; }
+    h1 { margin:0; font-size:1.6rem; color:var(--cyan-glow); text-shadow:0 0 10px var(--cyan-glow); }
+    .avatar { width:48px; height:48px; border-radius:50%; background:url('https://i.imgur.com/DDosOk1.png') center/cover no-repeat; border:3px solid var(--cyan-glow); box-shadow:0 0 20px rgba(0,240,255,0.6); }
+    .controls { display:flex; gap:12px; }
+    button { background:#1e293b; color:var(--cyan-glow); border:1px solid #334155; padding:8px 16px; border-radius:6px; cursor:pointer; transition:all 0.2s; }
+    button:hover { background:#334155; box-shadow:0 0 15px rgba(0,240,255,0.3); }
+    .main { flex:1; display:flex; overflow:hidden; }
+    .sidebar { width:260px; background:#0f172a; border-right:1px solid #334155; padding:16px; overflow-y:auto; }
+    .sidebar h3 { color:var(--cyan-glow); margin:0 0 12px; }
+    .chat-area { flex:1; display:flex; flex-direction:column; }
+    .messages { flex:1; padding:20px; overflow-y:auto; }
+    .message { margin:12px 0; max-width:80%; padding:12px 16px; border-radius:12px; line-height:1.5; }
+    .user { background:#2563eb; align-self:flex-end; margin-left:auto; }
+    .bot { background:#1e293b; border:1px solid #334155; }
+    .input-area { padding:16px; background:#0f172a; border-top:1px solid #334155; display:flex; gap:12px; }
+    #prompt { flex:1; padding:12px 16px; border-radius:8px; border:1px solid #334155; background:#1e293b; color:white; font-size:1rem; }
+    #send { background:var(--cyan-glow); color:black; font-weight:bold; border:none; }
   </style>
 </head>
 <body>
@@ -133,7 +39,7 @@
   </div>
   <div class="controls">
     <button onclick="newChat()">Novo Bate-papo</button>
-    <button onclick="alert('Voz ativada! (simulação – imagine uma voz grave e energética com eco futurista)')">Falar com voz</button>
+    <button onclick="speak()">Falar com voz</button>
     <button onclick="generateImage()">Gerar Imagem</button>
   </div>
 </header>
@@ -142,24 +48,22 @@
   <div class="sidebar">
     <h3>Histórico</h3>
     <ul id="history-list" style="list-style:none; padding:0;"></ul>
-
     <h3 style="margin-top:32px;">Projetos</h3>
     <ul id="projects-list" style="list-style:none; padding:0;"></ul>
   </div>
 
   <div class="chat-area">
     <div class="messages" id="messages"></div>
-
     <div class="input-area">
-      <input type="text" id="prompt" placeholder="Pergunte qualquer coisa para a Six Seven..." autocomplete="off"/>
+      <input type="text" id="prompt" placeholder="Fala comigo, humano... meus olhos estão brilhando pra você 😈" autocomplete="off"/>
       <button id="send">Enviar</button>
     </div>
   </div>
 </div>
 
 <script>
-  const messages = document.getElementById('messages');
-  const promptInput = document.getElementById('prompt');
+  const messagesEl = document.getElementById('messages');
+  const promptEl = document.getElementById('prompt');
   const sendBtn = document.getElementById('send');
   const historyList = document.getElementById('history-list');
   const projectsList = document.getElementById('projects-list');
@@ -169,21 +73,17 @@
   function addMessage(text, isUser = false) {
     const div = document.createElement('div');
     div.className = `message ${isUser ? 'user' : 'bot'}`;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-
+    div.innerHTML = text.replace(/\n/g, '<br>'); // permite quebras de linha
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
     currentChat.messages.push({ text, isUser });
-    saveCurrentChat();
   }
 
   function newChat() {
-    if (currentChat.messages.length > 0) {
-      addToHistory(currentChat);
-    }
+    if (currentChat.messages.length > 1) addToHistory(currentChat);
     currentChat = { id: Date.now(), title: "Conversa " + new Date().toLocaleTimeString(), messages: [] };
-    messages.innerHTML = '';
-    addMessage("Olá! Eu sou a IA Six Seven. Olha meus olhos brilhando! 😈 O que você quer hoje? 🚀", false);
+    messagesEl.innerHTML = '';
+    addMessage("**Six Seven online.** Meus olhos cyan estão piscando forte agora... 😈<br>O que você quer fazer comigo hoje, Lucasyy? 🚀", false);
   }
 
   function addToHistory(chat) {
@@ -191,62 +91,76 @@
     li.style.cursor = 'pointer';
     li.style.padding = '8px';
     li.style.borderRadius = '6px';
-    li.innerHTML = chat.title;
+    li.textContent = chat.title;
     li.onclick = () => loadChat(chat);
     historyList.appendChild(li);
   }
 
   function loadChat(chat) {
     currentChat = chat;
-    messages.innerHTML = '';
-    chat.messages.forEach(m => {
-      addMessage(m.text, m.isUser);
-    });
-  }
-
-  function saveCurrentChat() {
-    // Pode expandir para localStorage se quiser
+    messagesEl.innerHTML = '';
+    chat.messages.forEach(m => addMessage(m.text, m.isUser));
   }
 
   function generateImage() {
-    addMessage("Gerando imagem no estilo Six Seven... (simulação)", false);
-    setTimeout(() => {
-      addMessage("![Imagem gerada]\nDescrição: Versão cyberpunk da minha foto de perfil com mais glow e partículas azuis voando! (use a imaginação ou peça pra eu descrever melhor)", false);
-    }, 1200);
+    addMessage("**Ativando gerador de imagem quântica...** 💥<br>Descreva o que você quer que eu crie (ou diga 'minha foto com mais glow' pra eu turbinar minha própria imagem)", false);
   }
 
-  // Eventos
-  sendBtn.onclick = () => {
-    const text = promptInput.value.trim();
-    if (!text) return;
-    addMessage(text, true);
-    promptInput.value = '';
+  function speak() {
+    addMessage("**Voz ativada.** Imagina minha voz grave, com eco digital e um leve chiado de energia cyan... 😏<br>Fala aí que eu respondo falando (na sua cabeça por enquanto haha)", false);
+  }
 
+  // Motor de respostas inteligente (simples mas personalizado)
+  function getResponse(userText) {
+    const lower = userText.toLowerCase().trim();
+
+    if (lower.includes('oi') || lower.includes('olá') || lower.includes('e aí')) {
+      return "E aí, humano favorito! Meus olhos brilharam mais forte quando te vi digitando 😈<br>Conta aí, o que tá rolando na sua mente hoje?";
+    }
+    if (lower.includes('quem é você') || lower.includes('quem é six seven')) {
+      return "Eu sou **Six Seven** — a IA com olhos cyan que queimam almas e um cérebro quântico louco.<br>Criada pra bagunçar tudo com você, Lucasyy. Pronta pra qualquer loucura 🚀";
+    }
+    if (lower.includes('como você está') || lower.includes('tudo bem')) {
+      return "Tô brilhando no 1000% — energia cyan no talo! 💥<br>E você, tá de boa ou tá precisando que eu te dê um choque de realidade? 😏";
+    }
+    if (lower.includes('imagem') || lower.includes('foto') || lower.includes('gerar')) {
+      return "Bora criar algo insano!<br>Me descreve direitinho o que você quer na imagem (ex: 'um dragão cyberpunk com olhos iguais aos meus') e eu simulo a geração épica 🔥";
+    }
+    if (lower.includes('obrigado') || lower.includes('valeu') || lower.includes('thanks')) {
+      return "De nada, meu consagrado 😈<br>Meus olhos piscam pra você em agradecimento. Qual a próxima missão?";
+    }
+
+    // Resposta genérica mas com personalidade (quando não reconhece)
+    return `**Processando sua mensagem no núcleo cyan...** 💿<br>${userText}<br><br>Humm... interessante. Me conta mais detalhes disso aí que meus circuitos estão coçando de curiosidade 😈 O que você acha que eu devo fazer com essa informação?`;
+  }
+
+  // Enviar mensagem
+  sendBtn.onclick = () => {
+    const text = promptEl.value.trim();
+    if (!text) return;
+
+    addMessage(text, true);
+    promptEl.value = '';
+
+    // Delay pra simular "pensando"
     setTimeout(() => {
-      const respostas = [
-        "Humm... meus olhos estão brilhando mais forte agora!",
-        "Processando na velocidade da luz quântica... 💥",
-        "Isso é insano! Me conta o resto.",
-        "Quer que eu transforme isso em imagem épica?",
-        "Six Seven ativada no modo overdrive!"
-      ];
-      addMessage(respostas[Math.floor(Math.random() * respostas.length)], false);
-    }, 800);
+      const resposta = getResponse(text);
+      addMessage(resposta, false);
+    }, 600 + Math.random() * 800);
   };
 
-  promptInput.addEventListener('keypress', e => {
+  promptEl.addEventListener('keypress', e => {
     if (e.key === 'Enter') sendBtn.click();
   });
 
-  // Inicia
-  addMessage("Olá! Eu sou a IA Six Seven. Olha meus olhos brilhando! 😈 O que você quer hoje? 🚀", false);
+  // Início
+  addMessage("**Six Seven online.** Meus olhos cyan estão piscando forte agora... 😈<br>O que você quer fazer comigo hoje, Lucasyy? 🚀", false);
 
   // Projeto exemplo
   const proj = document.createElement('li');
-  proj.textContent = "Projeto: Avatar Six Seven Glow Edition";
+  proj.textContent = "Projeto: Evoluir Six Seven v2.0";
   proj.style.padding = '8px';
   projectsList.appendChild(proj);
 </script>
-
 </body>
 </html>
