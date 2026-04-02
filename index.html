@@ -22,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* Animações ao rolar (mantidas) */
+        /* Animações ao rolar */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(70px);
@@ -33,7 +33,7 @@
             transform: translateY(0);
         }
 
-        /* Navbar fixa */
+        /* Navbar fixa - Corrigida */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -45,6 +45,7 @@
             width: 100%;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 140, 0, 0.4);
+            height: 80px;           /* Altura fixa da navbar */
         }
 
         .brand-name {
@@ -81,6 +82,7 @@
             text-align: center;
             background: url('https://images.unsplash.com/photo-1611996575749-79a3ae8b8c4a?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') no-repeat center center/cover;
             position: relative;
+            padding-top: 80px;   /* Espaço para navbar */
         }
         .hero::before {
             content: '';
@@ -122,7 +124,7 @@
         .section-title {
             text-align: center;
             font-size: 2.8rem;
-            margin: 110px 0 60px;
+            margin: 120px 0 60px;
             color: #ff8800;
         }
 
@@ -195,9 +197,9 @@
             color: #777;
         }
 
-        /* Correção principal do bug */
+        /* === CORREÇÃO PRINCIPAL DO BUG === */
         section {
-            scroll-margin-top: 100px;   /* Evita que a navbar cubra o título */
+            scroll-margin-top: 100px;   /* Isso faz o título aparecer abaixo da navbar */
         }
     </style>
 </head>
@@ -273,7 +275,6 @@
     </footer>
 
     <script>
-        // Animações ao rolar (mantidas)
         function handleScrollAnimation() {
             const elements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
@@ -285,14 +286,6 @@
             }, { threshold: 0.15 });
             elements.forEach(el => observer.observe(el));
         }
-
-        // Clique nos links → apenas scroll suave (removida a animação pesada que bugava)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                // Remove qualquer animação anterior para evitar conflito
-                document.querySelectorAll('section').forEach(s => s.classList.remove('section-target'));
-            });
-        });
 
         function startDownload() {
             alert("✅ Download iniciado! (21,6 MB)\n\nSalvando BaconExecutor_v2.3.5.zip...");
