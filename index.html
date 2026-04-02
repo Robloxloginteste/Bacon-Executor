@@ -11,11 +11,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: linear-gradient(135deg, #1a0f00, #3d2a00);
@@ -44,10 +40,7 @@
             font-weight: 700;
         }
 
-        .highlight {
-            color: #ff8800;
-            text-shadow: 0 0 15px #ff8800;
-        }
+        .highlight { color: #ff8800; text-shadow: 0 0 15px #ff8800; }
 
         .nav-links {
             list-style: none;
@@ -62,9 +55,7 @@
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: #ff8800;
-        }
+        .nav-links a:hover { color: #ff8800; }
 
         .hero {
             height: 100vh;
@@ -134,7 +125,7 @@
             color: #ff8800;
         }
 
-        .features-grid {
+        .features-grid, .install-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
@@ -143,7 +134,7 @@
             padding: 0 5%;
         }
 
-        .feature-card {
+        .feature-card, .step-card {
             background: rgba(50, 30, 10, 0.75);
             border: 1px solid rgba(255, 140, 0, 0.4);
             border-radius: 16px;
@@ -152,15 +143,28 @@
             transition: 0.4s;
         }
 
-        .feature-card:hover {
+        .feature-card:hover, .step-card:hover {
             transform: translateY(-10px);
             border-color: #ff8800;
             box-shadow: 0 20px 40px rgba(255, 136, 0, 0.3);
         }
 
-        .feature-icon {
+        .feature-icon, .step-number {
             font-size: 3rem;
             margin-bottom: 20px;
+        }
+
+        .step-number {
+            background: #ff8800;
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 15px;
         }
 
         .download {
@@ -192,6 +196,17 @@
             transform: scale(1.05);
         }
 
+        .warning {
+            background: rgba(255, 60, 60, 0.15);
+            border: 1px solid #ff4444;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 900px;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
         .developer {
             text-align: center;
             padding: 40px;
@@ -199,10 +214,7 @@
             font-size: 1.1rem;
         }
 
-        .dev-name {
-            color: #ff8800;
-            font-weight: 600;
-        }
+        .dev-name { color: #ff8800; font-weight: 600; }
 
         footer {
             text-align: center;
@@ -224,6 +236,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#install">Como Instalar</a></li>
                 <li><a href="#download">Download</a></li>
             </ul>
         </nav>
@@ -244,33 +257,86 @@
                 <div class="feature-card">
                     <div class="feature-icon">🔓</div>
                     <h3>Sem Key</h3>
-                    <p>Não precisa de chave de ativação. Use imediatamente após baixar.</p>
+                    <p>Não precisa de chave de ativação.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🛡️</div>
                     <h3>Sem Vírus</h3>
-                    <p>100% limpo (simulado). Testado em vários antivírus.</p>
+                    <p>100% limpo (simulado).</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
                     <h3>Grátis Forever</h3>
-                    <p>Sem cobranças escondidas ou assinaturas.</p>
+                    <p>Sem cobranças escondidas.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Atualizações Rápidas</h3>
-                    <p>Suporte contínuo contra Byfron/Hyperion.</p>
+                    <p>Suporte contra Byfron/Hyperion.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
                     <h3>Fácil de Usar</h3>
-                    <p>Interface moderna e intuitiva.</p>
+                    <p>Interface moderna.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <h3>Alta Estabilidade</h3>
-                    <p>Bypass avançado e execução rápida de scripts.</p>
+                    <p>Bypass avançado.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO: COMO INSTALAR -->
+        <section id="install" style="padding: 80px 5%; background: rgba(10, 5, 0, 0.95);">
+            <h2 class="section-title">Como Instalar e Usar</h2>
+            
+            <div class="warning">
+                ⚠️ Desative temporariamente seu antivírus antes de instalar (pode dar falso positivo). 
+                Use apenas para fins educativos.
+            </div>
+
+            <div class="install-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Baixe o Executor</h3>
+                    <p>Clique no botão de download abaixo e salve o arquivo .zip no seu computador.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Extraia o Arquivo</h3>
+                    <p>Clique com botão direito no arquivo baixado → "Extrair Tudo".</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Execute o Programa</h3>
+                    <p>Abra a pasta extraída e execute o arquivo <strong>BaconExecutor.exe</strong> como administrador.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Abra o Roblox</h3>
+                    <p>Entre em qualquer jogo do Roblox.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h3>Inject / Attach</h3>
+                    <p>Clique no botão "Attach" ou pressione a tecla <strong>Insert</strong> para injetar.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h3>Execute Scripts</h3>
+                    <p>Cole seu script Lua na caixa de texto e clique em "Executar".</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>Dicas Importantes:</h3>
+                <ul style="list-style: none; margin-top: 20px; font-size: 1.1rem; line-height: 2;">
+                    <li>✅ Sempre baixe a versão mais recente do site oficial.</li>
+                    <li>✅ Se der erro de attach, feche o Roblox e abra novamente.</li>
+                    <li>✅ Não execute scripts de fontes desconhecidas.</li>
+                    <li>✅ Caso apareça Windows Defender, clique em "Mais informações" → "Executar mesmo assim".</li>
+                </ul>
             </div>
         </section>
 
@@ -281,7 +347,7 @@
                     <h3>Bacon Executor v3.1</h3>
                     <p>Última atualização: Abril 2026</p>
                     <ul style="list-style: none; margin: 25px 0; text-align: left; font-size: 1.1rem;">
-                        <li>✔ Tamanho: ~18 MB</li>
+                        <li>✔ Tamanho: 21,6 MB</li>
                         <li>✔ Compatível: Windows 10 / 11</li>
                         <li>✔ Versão: 3.1.0 (Build 247)</li>
                     </ul>
@@ -304,11 +370,11 @@
 
     <script>
         function startDownload() {
-            alert("✅ Download iniciado!\n\n(Esse é apenas um site de demonstração bonito. Nenhum arquivo real será baixado aqui.)");
+            alert("✅ Download iniciado! (21,6 MB)\n\nSalvando BaconExecutor.zip...\n\n(Esse é apenas um site de demonstração.)");
             
             setTimeout(() => {
-                alert("Download concluído com sucesso! 🎉\n\nLembre-se: Use executores apenas para fins educativos.");
-            }, 1200);
+                alert("✅ Arquivo baixado com sucesso!\n\nAgora siga os passos da seção 'Como Instalar'.");
+            }, 1500);
         }
     </script>
 </body>
