@@ -54,7 +54,7 @@
             animation: fadeUp 1s ease forwards 0.9s;
         }
 
-        /* ==================== BOTÕES COM HOVER ==================== */
+        /* Botões com hover */
         .btn-primary {
             padding: 16px 42px;
             font-size: 1.25rem;
@@ -68,13 +68,14 @@
             transform: translateY(30px);
             animation: fadeUp 1s ease forwards 1.4s;
             transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-primary:hover {
-            transform: translateY(-6px) scale(1.08);   /* Fica um tiquinho maior */
+            transform: translateY(-6px) scale(1.08);
         }
 
-        /* Botão de Download */
         .btn-download {
             background: linear-gradient(90deg, #ff8800, #ff5500);
             color: #000;
@@ -87,10 +88,11 @@
             cursor: pointer;
             transition: all 0.4s ease;
             box-shadow: 0 8px 25px rgba(255, 136, 0, 0.4);
+            display: inline-block;
         }
 
         .btn-download:hover {
-            transform: translateY(-8px) scale(1.08);   /* Mesmo efeito: fica um tiquinho maior */
+            transform: translateY(-8px) scale(1.08);
             box-shadow: 0 12px 35px rgba(255, 136, 0, 0.6);
             background: linear-gradient(90deg, #ffaa00, #ff6600);
         }
@@ -261,7 +263,9 @@
             <div class="hero-content">
                 <h2>The Best Roblox Executor</h2>
                 <p class="hero-subtitle">Rápido. Indetectável. Totalmente Grátis.</p>
-                <a href="#download" class="btn btn-primary">Baixar Agora - v2.3.5</a>
+                <a href="Bacon Executor V2.3.5.zip" download class="btn btn-primary">
+                    Baixar Agora - v2.3.5
+                </a>
             </div>
         </section>
 
@@ -304,7 +308,9 @@
                         <li>✔ Versão: 2.3.5 (Build 235)</li>
                     </ul>
                 </div>
-                <button class="btn btn-download" onclick="startDownload()">⬇ Baixar Grátis Agora</button>
+                <a href="Bacon Executor V2.3.5.zip" download class="btn btn-download">
+                    ⬇ Baixar Grátis Agora
+                </a>
             </div>
         </section>
     </main>
@@ -332,13 +338,6 @@
                 });
             }, { threshold: 0.15 });
             elements.forEach(el => observer.observe(el));
-        }
-
-        function startDownload() {
-            alert("✅ Download iniciado! (21,6 MB)\n\nSalvando BaconExecutor_v2.3.5.zip...");
-            setTimeout(() => {
-                alert("✅ Download concluído!\n\nAgora siga os passos em 'Como Instalar'.");
-            }, 1400);
         }
 
         window.addEventListener('load', handleScrollAnimation);
