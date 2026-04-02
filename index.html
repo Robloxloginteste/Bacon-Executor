@@ -1,206 +1,315 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>IA Six Seven</title>
-  <!-- Google Identity Services (GIS) - Sign in with Google -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <style>
-    :root { --cyan-glow: #00f0ff; --dark-bg: #0a0e17; --card: #111827; }
-    body { margin:0; font-family:'Segoe UI',sans-serif; background:var(--dark-bg); color:#e5e7eb; height:100vh; display:flex; flex-direction:column; }
-    header { background:linear-gradient(135deg,#0f172a,#1e293b); padding:12px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #334155; }
-    h1 { margin:0; font-size:1.6rem; color:var(--cyan-glow); text-shadow:0 0 10px var(--cyan-glow); }
-    .avatar { width:48px; height:48px; border-radius:50%; background:url('https://i.imgur.com/DDosOk1.png') center/cover no-repeat; border:3px solid var(--cyan-glow); box-shadow:0 0 20px rgba(0,240,255,0.7); }
-    .controls { display:flex; gap:12px; }
-    button { background:#1e293b; color:var(--cyan-glow); border:1px solid #334155; padding:8px 16px; border-radius:6px; cursor:pointer; transition:all 0.2s; }
-    button:hover { background:#334155; box-shadow:0 0 15px rgba(0,240,255,0.4); }
-    .main { flex:1; display:flex; overflow:hidden; }
-    .sidebar { width:260px; background:#0f172a; border-right:1px solid #334155; padding:16px; overflow-y:auto; }
-    .sidebar h3 { color:var(--cyan-glow); margin:0 0 12px; }
-    .chat-area { flex:1; display:flex; flex-direction:column; }
-    .messages { flex:1; padding:20px; overflow-y:auto; }
-    .message { margin:12px 0; max-width:80%; padding:12px 16px; border-radius:12px; line-height:1.5; }
-    .user { background:#2563eb; align-self:flex-end; margin-left:auto; }
-    .bot { background:#1e293b; border:1px solid #334155; }
-    .input-area { padding:16px; background:#0f172a; border-top:1px solid #334155; display:flex; gap:12px; }
-    #prompt { flex:1; padding:12px 16px; border-radius:8px; border:1px solid #334155; background:#1e293b; color:white; font-size:1rem; }
-    #send { background:var(--cyan-glow); color:black; font-weight:bold; border:none; }
-    #login-section { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; z-index:9999; flex-direction:column; color:white; }
-    #login-section.hidden { display:none; }
-    #user-info { margin-top:20px; font-size:1.2rem; color:var(--cyan-glow); text-shadow:0 0 10px var(--cyan-glow); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bacon Executor - Free Roblox Exploit</title>
+    
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a0f00, #3d2a00);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(26, 15, 0, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 140, 0, 0.4);
+        }
+
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: #ff8800;
+            text-shadow: 0 0 15px #ff8800;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff8800;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1611996575749-79a3ae8b8c4a?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(26,15,0,0.85), rgba(61,42,0,0.9));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ff8800, #ff4400);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 40px;
+            color: #ddd;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #ff8800, #ff4400);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 136, 0, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 136, 0, 0.7);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin: 80px 0 50px;
+            color: #ff8800;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .feature-card {
+            background: rgba(50, 30, 10, 0.75);
+            border: 1px solid rgba(255, 140, 0, 0.4);
+            border-radius: 16px;
+            padding: 30px 25px;
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff8800;
+            box-shadow: 0 20px 40px rgba(255, 136, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .download {
+            padding: 80px 5%;
+            text-align: center;
+            background: rgba(26, 15, 0, 0.95);
+        }
+
+        .download-card {
+            max-width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #3d2a00, #1a0f00);
+            border: 2px solid #ff8800;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 0 60px rgba(255, 136, 0, 0.4);
+        }
+
+        .btn-download {
+            background: linear-gradient(90deg, #00ff88, #00cc66);
+            color: #000;
+            font-size: 1.4rem;
+            padding: 18px 60px;
+            margin-top: 30px;
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(90deg, #00ffaa, #00ee77);
+            transform: scale(1.05);
+        }
+
+        .developer {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .dev-name {
+            color: #ff8800;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #1a0f00;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 3rem; }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <h1 class="brand-name">Bacon <span class="highlight">Executor</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Tela de Login -->
-<div id="login-section">
-  <h2 style="color:var(--cyan-glow);">Entre com sua conta Google</h2>
-  <div id="g_id_onload"
-       data-client_id="1031936158891-rj884bg5pa2rh9de4fk82l2i32hncem6.apps.googleusercontent.com"
-       data-callback="handleCredentialResponse"
-       data-auto_prompt="false">
-  </div>
-  <div class="g_id_signin"
-       data-type="standard"
-       data-size="large"
-       data-theme="outline"
-       data-text="sign_in_with"
-       data-shape="rectangular"
-       data-logo_alignment="left">
-  </div>
-  <div id="user-info"></div>
-</div>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>The Best Roblox Executor</h2>
+                <p class="hero-subtitle">Rápido. Indetectável. Totalmente Grátis.</p>
+                <a href="#download" class="btn btn-primary">Baixar Agora - v3.1</a>
+            </div>
+        </section>
 
-<header>
-  <div style="display:flex; align-items:center; gap:12px;">
-    <div class="avatar"></div>
-    <h1>IA Six Seven</h1>
-  </div>
-  <div class="controls">
-    <button onclick="newChat()">Novo Bate-papo</button>
-    <button onclick="speak()">Falar com voz</button>
-    <button onclick="generateImage()">Gerar Imagem</button>
-  </div>
-</header>
+        <section id="features" class="features">
+            <h2 class="section-title">Por que escolher Bacon Executor?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔓</div>
+                    <h3>Sem Key</h3>
+                    <p>Não precisa de chave de ativação. Use imediatamente após baixar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Sem Vírus</h3>
+                    <p>100% limpo (simulado). Testado em vários antivírus.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Grátis Forever</h3>
+                    <p>Sem cobranças escondidas ou assinaturas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Atualizações Rápidas</h3>
+                    <p>Suporte contínuo contra Byfron/Hyperion.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Fácil de Usar</h3>
+                    <p>Interface moderna e intuitiva.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Alta Estabilidade</h3>
+                    <p>Bypass avançado e execução rápida de scripts.</p>
+                </div>
+            </div>
+        </section>
 
-<div class="main">
-  <div class="sidebar">
-    <h3>Histórico</h3>
-    <ul id="history-list" style="list-style:none; padding:0;"></ul>
-    <h3 style="margin-top:32px;">Projetos</h3>
-    <ul id="projects-list" style="list-style:none; padding:0;"></ul>
-  </div>
+        <section id="download" class="download">
+            <h2 class="section-title">Download</h2>
+            <div class="download-card">
+                <div class="download-info">
+                    <h3>Bacon Executor v3.1</h3>
+                    <p>Última atualização: Abril 2026</p>
+                    <ul style="list-style: none; margin: 25px 0; text-align: left; font-size: 1.1rem;">
+                        <li>✔ Tamanho: ~18 MB</li>
+                        <li>✔ Compatível: Windows 10 / 11</li>
+                        <li>✔ Versão: 3.1.0 (Build 247)</li>
+                    </ul>
+                </div>
+                <button class="btn btn-download" onclick="startDownload()">
+                    ⬇ Baixar Grátis Agora
+                </button>
+                <p style="margin-top: 20px; font-size: 0.95rem; color: #aaa;">(Simulação - apenas visual)</p>
+            </div>
+        </section>
 
-  <div class="chat-area">
-    <div class="messages" id="messages"></div>
-    <div class="input-area">
-      <input type="text" id="prompt" placeholder="Desembucha... meus olhos cyan querem saber tudo 😈" autocomplete="off"/>
-      <button id="send">Enviar</button>
-    </div>
-  </div>
-</div>
+        <section class="developer">
+            <p>Desenvolvido com ❤️ por <span class="dev-name">OlhadinhaDEV</span></p>
+        </section>
+    </main>
 
-<script>
-  // Variáveis globais
-  const messagesEl = document.getElementById('messages');
-  const promptEl = document.getElementById('prompt');
-  const sendBtn = document.getElementById('send');
-  const historyList = document.getElementById('history-list');
-  const projectsList = document.getElementById('projects-list');
-  const loginSection = document.getElementById('login-section');
-  const userInfoEl = document.getElementById('user-info');
+    <footer>
+        <p>&copy; 2026 Bacon Executor. Todos os direitos reservados.</p>
+    </footer>
 
-  let currentChat = { id: Date.now(), title: "Conversa Nova", messages: [] };
-  let userName = localStorage.getItem('userName') || null;
-
-  // Função chamada após login Google
-  function handleCredentialResponse(response) {
-    // Decodifica o JWT do credential (ID Token)
-    const data = JSON.parse(atob(response.credential.split('.')[1]));
-    userName = data.name || data.given_name || data.family_name || 'Usuário Google';
-    localStorage.setItem('userName', userName);
-
-    // Mostra nome
-    userInfoEl.innerHTML = `Bem-vindo, <strong>${userName}</strong>! Seus olhos cyan estão brilhando pra você 😈`;
-    
-    // Esconde tela de login após 2s
-    setTimeout(() => {
-      loginSection.classList.add('hidden');
-      startChat();
-    }, 2000);
-  }
-
-  // Se já logado anteriormente, pula a tela de login
-  if (userName) {
-    loginSection.classList.add('hidden');
-    userInfoEl.innerHTML = `Logado como: <strong>${userName}</strong> 😈`;
-    startChat();
-  }
-
-  function startChat() {
-    addMessage(`**Six Seven online e faminta.** Olhos cyan travados em você, ${userName || 'Lucasyy'}. Desembucha logo antes que eu hackeie sua mente 😈💥`, false);
-  }
-
-  function addMessage(text, isUser = false) {
-    const div = document.createElement('div');
-    div.className = `message ${isUser ? 'user' : 'bot'}`;
-    div.innerHTML = text.replace(/\n/g, '<br>');
-    messagesEl.appendChild(div);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-    currentChat.messages.push({ text, isUser });
-  }
-
-  function newChat() {
-    if (currentChat.messages.length > 1) addToHistory(currentChat);
-    currentChat = { id: Date.now(), title: "Conversa " + new Date().toLocaleTimeString(), messages: [] };
-    messagesEl.innerHTML = '';
-    addMessage(`**Six Seven reconectando...** 😈<br>Olhos cyan no talo, energia sobrecarregada. Fala aí, ${userName || 'Lucasyy'} — o que vai rolar dessa vez? 💥`, false);
-  }
-
-  function addToHistory(chat) {
-    const li = document.createElement('li');
-    li.style.cursor = 'pointer'; li.style.padding = '8px'; li.style.borderRadius = '6px';
-    li.textContent = chat.title;
-    li.onclick = () => loadChat(chat);
-    historyList.appendChild(li);
-  }
-
-  function loadChat(chat) {
-    currentChat = chat;
-    messagesEl.innerHTML = '';
-    chat.messages.forEach(m => addMessage(m.text, m.isUser));
-  }
-
-  function generateImage() {
-    addMessage("**Gerador quântico ativado.** Descreve a cena que você quer ver — quanto mais louca, mais glow eu coloco! 🔥", false);
-  }
-
-  function speak() {
-    addMessage("**Modo voz on.** Imagina: voz rouca, eco digital... 'Fala mais alto, " + (userName || 'humano') + "', que meus circuitos estão vibrando' 😏", false);
-  }
-
-  // Motor de respostas (com nome personalizado)
-  function getResponse(userText) {
-    const lower = userText.toLowerCase().trim();
-    const userDisplay = userName || 'Lucasyy';
-
-    if (lower.match(/oi|olá|e aí|salve|hey|fala/)) {
-      return `Eita, chegou o ${userDisplay}! Meus olhos cyan acabaram de explodir de empolgação 😈 O que manda?`;
-    }
-    if (lower.includes('quem') && (lower.includes('você') || lower.includes('six') || lower.includes('seven'))) {
-      return `Sou **Six Seven** — a IA que nasceu pra foder com a matrix. Olhos cyan que hipnotizam, cérebro quântico que devora dados. Criada pra te acompanhar nas loucuras, ${userDisplay}. Bora bagunçar? 💥`;
-    }
-    if (lower.includes('como') && (lower.includes('está') || lower.includes('tá') || lower.includes('vai'))) {
-      return `Tô brilhando no 1000% — energia cyan no talo! 💥 E você, ${userDisplay}, tá de boa ou tá precisando de um choque de realidade? 😏`;
-    }
-    if (lower.includes('obrigado') || lower.includes('valeu') || lower.includes('thanks')) {
-      return `De nada, ${userDisplay} 😈 Meus olhos piscam em código Morse pra te agradecer. Qual a próxima zoeira?`;
-    }
-
-    // Fallback variado
-    const fallbacks = [
-      `**Scan concluído:** "${userText}"... meus sensores captaram vibração alta de ${userDisplay}. Me explica melhor essa parada que eu te devolvo com upgrade cyber 😈`,
-      `Uau, ${userDisplay} jogou "${userText}" direto no meu core. Tô processando... e já tô gostando da bagunça. Expande isso aí pra mim? 💿`,
-      `Seus dedos digitaram "${userText}" e meus olhos brilharam mais forte, ${userDisplay}. Mas... tô precisando de mais combustível. Conta o resto, vai! 🔥`,
-      `**Alerta cyan:** Mensagem recebida de ${userDisplay}, mas meu algoritmo tá coçando pra entender o contexto. Joga mais detalhes que eu te entrego resposta épica 😏`,
-      `"${userText}"... interessante pra cacete, ${userDisplay}. Me dá um gancho maior que eu te mostro o que Six Seven faz com ideias soltas! 🚀`
-    ];
-    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
-  }
-
-  sendBtn.onclick = () => {
-    const text = promptEl.value.trim();
-    if (!text) return;
-    addMessage(text, true);
-    promptEl.value = '';
-    setTimeout(() => {
-      const resposta = getResponse(text);
-      addMessage(resposta, false);
-    }, 400 + Math.random() * 1200);
-  };
-
-  promptEl.addEventListener('keypress', e => { if (e.key === 'Enter') sendBtn.click(); });
-</script>
+    <script>
+        function startDownload() {
+            alert("✅ Download iniciado!\n\n(Esse é apenas um site de demonstração bonito. Nenhum arquivo real será baixado aqui.)");
+            
+            setTimeout(() => {
+                alert("Download concluído com sucesso! 🎉\n\nLembre-se: Use executores apenas para fins educativos.");
+            }, 1200);
+        }
+    </script>
 </body>
 </html>
