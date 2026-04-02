@@ -12,9 +12,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth; /* Scroll suave básico */
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background: linear-gradient(135deg, #1a0f00, #3d2a00);
@@ -24,28 +22,34 @@
             overflow-x: hidden;
         }
 
-        /* Animação suave ao rolar com clique no menu */
-        @keyframes gentleScrollIn {
-            from {
-                opacity: 0.7;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Animações ao rolar a página */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(70px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        section {
-            scroll-margin-top: 90px; /* Espaço para a navbar fixa */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(70px);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* Animação leve quando a seção entra na tela após clique */
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animação leve quando clica no menu */
         .section-target {
-            animation: gentleScrollIn 1.1s ease forwards;
+            animation: sectionPop 1s ease forwards;
         }
 
-        /* Navbar */
+        @keyframes sectionPop {
+            0% { opacity: 0.75; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navbar fixa */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -67,18 +71,24 @@
 
         .highlight { color: #ff8800; text-shadow: 0 0 20px #ff8800; }
 
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
         .nav-links a {
             color: #ddd;
             text-decoration: none;
             font-weight: 500;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 8px;
             transition: all 0.3s;
         }
 
         .nav-links a:hover {
             color: #ff8800;
-            background: rgba(255, 136, 0, 0.1);
+            background: rgba(255, 136, 0, 0.15);
         }
 
         /* Hero */
@@ -135,7 +145,7 @@
         .section-title {
             text-align: center;
             font-size: 2.8rem;
-            margin: 100px 0 60px;
+            margin: 110px 0 60px;
             color: #ff8800;
         }
 
@@ -216,7 +226,7 @@
             <div class="logo-container">
                 <h1 class="brand-name">Bacon <span class="highlight">Executor</span></h1>
             </div>
-            <ul class="nav-links" style="list-style: none; display: flex; gap: 20px;">
+            <ul class="nav-links">
                 <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#install" class="nav-link">Como Instalar</a></li>
                 <li><a href="#download" class="nav-link">Download</a></li>
@@ -234,37 +244,37 @@
         </section>
 
         <section id="features">
-            <h2 class="section-title">Por que escolher Bacon Executor?</h2>
+            <h2 class="section-title animate-on-scroll">Por que escolher Bacon Executor?</h2>
             <div class="features-grid">
-                <div class="feature-card"><div class="feature-icon">🔓</div><h3>Sem Key</h3><p>Não precisa de chave de ativação.</p></div>
-                <div class="feature-card"><div class="feature-icon">🛡️</div><h3>Sem Vírus</h3><p>100% limpo (simulado).</p></div>
-                <div class="feature-card"><div class="feature-icon">💰</div><h3>Grátis Forever</h3><p>Sem cobranças escondidas.</p></div>
-                <div class="feature-card"><div class="feature-icon">⚡</div><h3>Atualizações Rápidas</h3><p>Suporte contra Byfron/Hyperion.</p></div>
-                <div class="feature-card"><div class="feature-icon">🎯</div><h3>Fácil de Usar</h3><p>Interface moderna.</p></div>
-                <div class="feature-card"><div class="feature-icon">🔒</div><h3>Alta Estabilidade</h3><p>Bypass avançado.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🔓</div><h3>Sem Key</h3><p>Não precisa de chave de ativação.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🛡️</div><h3>Sem Vírus</h3><p>100% limpo (simulado).</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">💰</div><h3>Grátis Forever</h3><p>Sem cobranças escondidas.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">⚡</div><h3>Atualizações Rápidas</h3><p>Suporte contra Byfron/Hyperion.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🎯</div><h3>Fácil de Usar</h3><p>Interface moderna.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🔒</div><h3>Alta Estabilidade</h3><p>Bypass avançado.</p></div>
             </div>
         </section>
 
         <section id="install" style="padding: 100px 5%; background: rgba(10, 5, 0, 0.95);">
-            <h2 class="section-title">Como Instalar e Usar</h2>
+            <h2 class="section-title animate-on-scroll">Como Instalar e Usar</h2>
             
-            <div class="warning">
+            <div class="warning animate-on-scroll">
                 ⚠️ Desative temporariamente seu antivírus antes de instalar. Use apenas para fins educativos.
             </div>
 
             <div class="install-steps">
-                <div class="step-card"><div class="step-number">1</div><h3>Baixe o Executor</h3><p>Clique no botão de download e salve o .zip.</p></div>
-                <div class="step-card"><div class="step-number">2</div><h3>Extraia o Arquivo</h3><p>Clique direito → Extrair Tudo.</p></div>
-                <div class="step-card"><div class="step-number">3</div><h3>Execute o Programa</h3><p>Abra <strong>BaconExecutor.exe</strong> como administrador.</p></div>
-                <div class="step-card"><div class="step-number">4</div><h3>Abra o Roblox</h3><p>Entre em qualquer jogo.</p></div>
-                <div class="step-card"><div class="step-number">5</div><h3>Attach</h3><p>Clique em Attach ou pressione <strong>Insert</strong>.</p></div>
-                <div class="step-card"><div class="step-number">6</div><h3>Execute Scripts</h3><p>Cole o script e clique em Executar.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">1</div><h3>Baixe o Executor</h3><p>Clique no botão de download e salve o .zip.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">2</div><h3>Extraia o Arquivo</h3><p>Clique direito → Extrair Tudo.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">3</div><h3>Execute o Programa</h3><p>Abra <strong>BaconExecutor.exe</strong> como administrador.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">4</div><h3>Abra o Roblox</h3><p>Entre em qualquer jogo.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">5</div><h3>Attach</h3><p>Clique em Attach ou pressione <strong>Insert</strong>.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">6</div><h3>Execute Scripts</h3><p>Cole o script e clique em Executar.</p></div>
             </div>
         </section>
 
         <section id="download" style="padding: 100px 5%;">
-            <h2 class="section-title">Download</h2>
-            <div class="download-card">
+            <h2 class="section-title animate-on-scroll">Download</h2>
+            <div class="download-card animate-on-scroll">
                 <div class="download-info">
                     <h3>Bacon Executor v2.3.5</h3>
                     <p>Última atualização: Abril 2026</p>
@@ -284,39 +294,49 @@
     </footer>
 
     <script>
-        // Animação suave ao clicar nos links da navbar
+        // Animações ao rolar a página
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // Animação ao clicar nos links da navbar
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault(); // Evita comportamento padrão
-
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
 
                 if (targetSection) {
-                    // Rolagem suave personalizada
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
                     // Remove animação anterior
                     document.querySelectorAll('section').forEach(s => s.classList.remove('section-target'));
 
-                    // Adiciona animação leve de subida após rolar
+                    // Adiciona animação leve depois de rolar
                     setTimeout(() => {
                         targetSection.classList.add('section-target');
-                    }, 800);
+                    }, 700);
                 }
             });
         });
 
-        // Função de download
         function startDownload() {
             alert("✅ Download iniciado! (21,6 MB)\n\nSalvando BaconExecutor_v2.3.5.zip...");
             setTimeout(() => {
                 alert("✅ Download concluído!\n\nAgora siga os passos em 'Como Instalar'.");
             }, 1400);
         }
+
+        // Inicializa
+        window.addEventListener('load', () => {
+            handleScrollAnimation();
+        });
     </script>
 </body>
 </html>
