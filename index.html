@@ -54,7 +54,7 @@
             animation: fadeUp 1s ease forwards 0.9s;
         }
 
-        /* Botões com hover (fica um tiquinho maior) */
+        /* Botões com hover */
         .btn-primary {
             padding: 16px 42px;
             font-size: 1.25rem;
@@ -256,9 +256,9 @@
             <div class="hero-content">
                 <h2>The Best Roblox Executor</h2>
                 <p class="hero-subtitle">Rápido. Indetectável. Totalmente Grátis.</p>
-                <a href="BaconExecutor_v2.3.5.rar" download class="btn btn-primary">
+                <button onclick="downloadFile()" class="btn btn-primary">
                     Baixar Agora - v2.3.5
-                </a>
+                </button>
             </div>
         </section>
 
@@ -301,9 +301,9 @@
                         <li>✔ Versão: 2.3.5 (Build 235)</li>
                     </ul>
                 </div>
-                <a href="BaconExecutor_v2.3.5.rar" download class="btn btn-download">
+                <button onclick="downloadFile()" class="btn btn-download">
                     ⬇ Baixar Grátis Agora
-                </a>
+                </button>
             </div>
         </section>
     </main>
@@ -321,6 +321,19 @@
     </footer>
 
     <script>
+        // Função para forçar o download (mais confiável para arquivos locais)
+        function downloadFile() {
+            const fileName = "BaconExecutor_v2.3.5.rar";   // ← Mude aqui se o nome do seu arquivo for diferente
+            
+            const link = document.createElement('a');
+            link.href = fileName;      // Nome exato do arquivo na mesma pasta
+            link.download = fileName;  // Nome que vai aparecer no download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Animações de scroll
         function handleScrollAnimation() {
             const elements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
