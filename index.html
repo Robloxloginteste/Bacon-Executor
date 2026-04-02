@@ -11,7 +11,6 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-       
         html { scroll-behavior: smooth; }
        
         body {
@@ -54,7 +53,7 @@
             animation: fadeUp 1s ease forwards 0.9s;
         }
 
-        /* Botões - Visual EXATAMENTE como antes */
+        /* Botões - Visual original */
         .btn-primary {
             padding: 16px 42px;
             font-size: 1.25rem;
@@ -71,7 +70,6 @@
             text-decoration: none;
             display: inline-block;
         }
-
         .btn-primary:hover {
             transform: translateY(-6px) scale(1.08);
         }
@@ -90,151 +88,43 @@
             box-shadow: 0 8px 25px rgba(255, 136, 0, 0.4);
             display: inline-block;
         }
-
         .btn-download:hover {
             transform: translateY(-8px) scale(1.08);
             box-shadow: 0 12px 35px rgba(255, 136, 0, 0.6);
             background: linear-gradient(90deg, #ffaa00, #ff6600);
         }
 
-        /* Keyframes */
-        @keyframes titlePop {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes titlePop { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
         /* Navbar */
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            background: rgba(26, 15, 0, 0.97);
-            backdrop-filter: blur(12px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 140, 0, 0.4);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%; background: rgba(26, 15, 0, 0.97); backdrop-filter: blur(12px);
+            position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid rgba(255, 140, 0, 0.4);
         }
-        .brand-name {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-        }
+        .brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; }
         .highlight { color: #ff8800; text-shadow: 0 0 20px #ff8800; }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-        .nav-links a {
-            color: #ddd;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-        .nav-links a:hover {
-            color: #ff8800;
-            background: rgba(255, 136, 0, 0.15);
-        }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links a { color: #ddd; text-decoration: none; font-weight: 500; padding: 8px 18px; border-radius: 8px; transition: all 0.3s; }
+        .nav-links a:hover { color: #ff8800; background: rgba(255, 136, 0, 0.15); }
 
-        /* Hero */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+            height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
             background: url('https://images.unsplash.com/photo-1611996575749-79a3ae8b8c4a?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') no-repeat center center/cover;
             position: relative;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(26,15,0,0.85), rgba(61,42,0,0.9));
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
+        .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(26,15,0,0.85), rgba(61,42,0,0.9)); }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin: 110px 0 60px;
-            color: #ff8800;
-        }
-        .features-grid, .install-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-        .feature-card, .step-card {
-            background: rgba(50, 30, 10, 0.8);
-            border: 1px solid rgba(255, 140, 0, 0.4);
-            border-radius: 18px;
-            padding: 32px 25px;
-            text-align: center;
-        }
-        .feature-card:hover, .step-card:hover {
-            transform: translateY(-12px);
-            border-color: #ff8800;
-        }
-        .step-number {
-            background: #ff8800;
-            color: #000;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-        }
-        .download-card {
-            max-width: 520px;
-            margin: 0 auto;
-            background: linear-gradient(145deg, #3d2a00, #1a0f00);
-            border: 2px solid #ff8800;
-            border-radius: 22px;
-            padding: 55px 40px;
-        }
-        .warning {
-            background: rgba(255, 60, 60, 0.18);
-            border: 1px solid #ff4444;
-            padding: 18px;
-            border-radius: 12px;
-            margin: 40px auto;
-            max-width: 900px;
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            padding: 60px 20px 40px;
-            background: #0f0a00;
-            color: #aaa;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-        .roblox-link {
-            color: #00b0ff;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-        .roblox-link:hover {
-            color: #00d4ff;
-        }
+        .section-title { text-align: center; font-size: 2.8rem; margin: 110px 0 60px; color: #ff8800; }
+        .features-grid, .install-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .feature-card, .step-card { background: rgba(50, 30, 10, 0.8); border: 1px solid rgba(255, 140, 0, 0.4); border-radius: 18px; padding: 32px 25px; text-align: center; }
+        .feature-card:hover, .step-card:hover { transform: translateY(-12px); border-color: #ff8800; }
+        .step-number { background: #ff8800; color: #000; width: 55px; height: 55px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.6rem; margin-bottom: 20px; }
+        .download-card { max-width: 520px; margin: 0 auto; background: linear-gradient(145deg, #3d2a00, #1a0f00); border: 2px solid #ff8800; border-radius: 22px; padding: 55px 40px; }
+        .warning { background: rgba(255, 60, 60, 0.18); border: 1px solid #ff4444; padding: 18px; border-radius: 12px; margin: 40px auto; max-width: 900px; text-align: center; }
+        footer { text-align: center; padding: 60px 20px 40px; background: #0f0a00; color: #aaa; font-size: 1.05rem; line-height: 1.8; }
     </style>
 </head>
 <body>
@@ -256,7 +146,7 @@
             <div class="hero-content">
                 <h2>The Best Roblox Executor</h2>
                 <p class="hero-subtitle">Rápido. Indetectável. Totalmente Grátis.</p>
-                <a href="#" onclick="downloadFile(); return false;" class="btn btn-primary">
+                <a href="BaconExecutor_v2.3.5.rar" download class="btn btn-primary">
                     Baixar Agora - v2.3.5
                 </a>
             </div>
@@ -301,7 +191,7 @@
                         <li>✔ Versão: 2.3.5 (Build 235)</li>
                     </ul>
                 </div>
-                <a href="#" onclick="downloadFile(); return false;" class="btn btn-download">
+                <a href="BaconExecutor_v2.3.5.rar" download class="btn btn-download">
                     ⬇ Baixar Grátis Agora
                 </a>
             </div>
@@ -309,43 +199,20 @@
     </main>
 
     <footer>
-        <p>
-            Siga o DONO No Roblox! ( eu )
-            <a href="https://www.roblox.com/pt/users/9630022401/profile" target="_blank" class="roblox-link">
-                Olhadinhaso
-            </a>
-        </p>
-        <p style="margin-top: 12px; font-size: 1rem; color: #777;">
-            Todos os direitos reservados © 2026 Bacon Executor
-        </p>
+        <p>Siga o DONO No Roblox! <a href="https://www.roblox.com/pt/users/9630022401/profile" target="_blank" class="roblox-link">Olhadinhaso</a></p>
+        <p style="margin-top: 12px; font-size: 1rem; color: #777;">© 2026 Bacon Executor</p>
     </footer>
 
     <script>
-        function downloadFile() {
-            const fileName = "BaconExecutor_v2.3.5.rar";
-            
-            const link = document.createElement('a');
-            link.href = fileName;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            alert("✅ Download iniciado!\n\nArquivo: BaconExecutor_v2.3.5.rar");
-        }
-
         function handleScrollAnimation() {
             const elements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
                 });
             }, { threshold: 0.15 });
             elements.forEach(el => observer.observe(el));
         }
-
         window.addEventListener('load', handleScrollAnimation);
     </script>
 </body>
