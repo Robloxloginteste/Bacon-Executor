@@ -32,7 +32,7 @@
             transform: translateY(0);
         }
 
-        /* Animações da Hero - Bonitas */
+        /* Animações da Hero */
         .hero-content h2 {
             font-size: 4.8rem;
             font-weight: 700;
@@ -53,7 +53,7 @@
             animation: fadeUp 1s ease forwards 0.9s;
         }
 
-        /* ==================== BOTÕES BONITOS ==================== */
+        /* Botões Bonitos */
         .btn-primary {
             padding: 16px 42px;
             font-size: 1.25rem;
@@ -71,7 +71,6 @@
             display: inline-block;
             box-shadow: 0 8px 25px rgba(255, 136, 0, 0.4);
         }
-
         .btn-primary:hover {
             transform: translateY(-6px) scale(1.08);
             box-shadow: 0 12px 35px rgba(255, 136, 0, 0.6);
@@ -91,20 +90,14 @@
             box-shadow: 0 8px 25px rgba(255, 136, 0, 0.4);
             display: inline-block;
         }
-
         .btn-download:hover {
             transform: translateY(-8px) scale(1.08);
             box-shadow: 0 12px 35px rgba(255, 136, 0, 0.6);
             background: linear-gradient(90deg, #ffaa00, #ff6600);
         }
 
-        /* Keyframes */
-        @keyframes titlePop {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes titlePop { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
         /* Navbar */
         .navbar {
@@ -257,7 +250,7 @@
             <div class="hero-content">
                 <h2>The Best Roblox Executor</h2>
                 <p class="hero-subtitle">Rápido. Indetectável. Totalmente Grátis.</p>
-                <a href="#" onclick="downloadFile(); return false;" class="btn btn-primary">
+                <a href="https://www.mediafire.com/file/aocinafzmadb5hc/BaconExecutor_v2.3.5.rar.rar/file" target="_blank" class="btn btn-primary">
                     Baixar Agora - v2.3.5
                 </a>
             </div>
@@ -283,7 +276,7 @@
             <div class="install-steps">
                 <div class="step-card animate-on-scroll"><div class="step-number">1</div><h3>Baixe o Executor</h3><p>Clique no botão e salve o .rar.</p></div>
                 <div class="step-card animate-on-scroll"><div class="step-number">2</div><h3>Extraia o Arquivo</h3><p>Clique direito → Extrair Tudo.</p></div>
-                <div class="step-card animate-on-scroll"><div class="step-number">3</div><h3>Execute o Programa</h3><p>Abra <strong>BaconExecutor.exe</strong> como administrador.</p></div>
+                <div class="step-card animate-on-scroll"><div class="step-number">3</div><h3>Abra Bacon Executor.exe</h3><p></p></div>
                 <div class="step-card animate-on-scroll"><div class="step-number">4</div><h3>Abra o Roblox</h3><p>Entre em qualquer jogo.</p></div>
                 <div class="step-card animate-on-scroll"><div class="step-number">5</div><h3>Attach</h3><p>Clique em Attach ou pressione <strong>Insert</strong>.</p></div>
                 <div class="step-card animate-on-scroll"><div class="step-number">6</div><h3>Execute Scripts</h3><p>Cole o script e clique em Executar.</p></div>
@@ -302,7 +295,7 @@
                         <li>✔ Versão: 2.3.5 (Build 235)</li>
                     </ul>
                 </div>
-                <a href="#" onclick="downloadFile(); return false;" class="btn btn-download">
+                <a href="https://www.mediafire.com/file/aocinafzmadb5hc/BaconExecutor_v2.3.5.rar.rar/file" target="_blank" class="btn btn-download">
                     ⬇ Baixar Grátis Agora
                 </a>
             </div>
@@ -322,20 +315,6 @@
     </footer>
 
     <script>
-        function downloadFile() {
-            const fileName = "BaconExecutor_v2.3.5.rar";
-            
-            // Força o download
-            const link = document.createElement('a');
-            link.href = fileName;
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            alert("✅ Download iniciado!\n\nArquivo: BaconExecutor_v2.3.5.rar\n\nSe não começar automaticamente, tente clicar com o botão direito no botão e escolher 'Salvar link como...'");
-        }
-
         function handleScrollAnimation() {
             const elements = document.querySelectorAll('.animate-on-scroll');
             const observer = new IntersectionObserver((entries) => {
